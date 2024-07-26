@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>FIND ID</title>
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <link rel="stylesheet" href="../../static/css/user/findId.css" th:href="@{/css/user/findId.css}">
+</head>
+<body>
+<main>
+    <form th:action="@{/user/findId}" method="POST">
+        <section>
+            <span>아이디 찾기</span>
+            <a href="/user/login">X</a>
+        </section>
+        <div class="find-div">
+            <label>
+                <input id="id-input-section" type="text" placeholder="이름입력" name="userName">
+                <input id="email-input-section find-id-email" type="text" placeholder="이메일작성" name="userEmail">
+            </label>
+            <div>
+                <span class="find-id-print-section" th:if="${id == null}">아이디가 존재하지 않습니다</span>
+                <span class="find-id-print-section" th:if="${id != null}">아이디는 [[${id}]] 입니다</span>
+            </div>
+            <button id="find-id-btn">아이디 찾기</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>

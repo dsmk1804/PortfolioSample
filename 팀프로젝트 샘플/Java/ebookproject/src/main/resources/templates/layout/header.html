@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>HEADER</title>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/d19fdaba43.js"></script>
+    <link rel="stylesheet" href="../../static/css/public/header.css" th:href="@{/css/public/header.css}">
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <script src="../../static/js/public/header.js" th:src="@{/js/public/header.js} " defer></script>
+
+ 
+</head>
+<body>
+<!--헤더 부분-->
+<header th:fragment="header">
+    <form th:action="@{/searchbook}">
+        <input id="token" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <div id="e-book-category-div">
+            <a th:href="@{/main}">
+                <img class="img" src="../../static/icons/bookimage.png" th:src="@{/icons/bookimage.png}"/>
+            </a>
+            <a class="genre" th:href="@{/main(genre=소설)}">소설</a>
+            <a class="genre" th:href="@{/main(genre=만화)}">만화</a>
+        </div>
+
+        <div id="header-user-div">
+            <section class="search-form">
+                <label class="search-label">
+                    <input id="search-text" type="text" name="bookTitle"/>
+                    <button id="search-button" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </label>
+                <section class="search-section">
+                    <ol class="search-view">
+                        <li class="search-view-list" th:each="books : ${book}">
+                            <a th:href="@{|/detail/${books.bookNo}|}">책 제목 1번 예시</a>
+                        </li>
+                    </ol>
+                </section>
+            </section>
+            <section  id="my-page-section">
+                <div id="my-page-section-div">
+                    <button id="user"><i class="fa-solid fa-user"></i></button>
+                </div>
+                <section id="my-page-section-section">
+                    <div sec:authorize="isAuthenticated()" class="my-page-div">
+                        <a href="/user/mypage"><h4 th:text="${#authentication.principal.userId}">내 정보</h4></a>
+                    </div>
+                    <h4 sec:authorize="isAuthenticated()" class="my-cash">현재 보유 캐시</h4>
+                    <div sec:authorize="isAuthenticated()" class="my-page-point">
+                        <h4  th:text="${#authentication.principal.userCash}">100P</h4>
+                        <button sec:authorize="isAuthenticated()" type="button" id="cash-charge" th:onclick="openCashChargePage()">충전</button>
+                    </div>
+                    <div class="logout-div">
+                        <a href="/user/login">
+                            <div sec:authorize="!isAuthenticated()" id="login-btn">로그인</div>
+                        </a>
+                        <a href="/user/logout" sec:authorize="isAuthenticated()" id="logout-btn">
+                            <div>로그아웃</div>
+                        </a>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </form>
+</header>
+</body>
+</html>

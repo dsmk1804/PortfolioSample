@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebook.mapper.BookMapper">
+
+    <resultMap id="selectBookWithBookChaptersByBookNo" type="BookDTO" autoMapping="true">
+        <id property="bookNo" column="book_no"/>
+        <association property="bookImage" javaType="FileDTO">
+            <id property="data" column="book_image" />
+        </association>
+        <collection property="bookChapters" ofType="BookChapterDTO" javaType="list" autoMapping="true">
+            <id property="no" column="bookChapterNo" />
+        </collection>
+    </resultMap>
+
+    <select id="findAllBooks" resultMap="selectBookWithBookChaptersByBookNo">
+        SELECT *, book_no AS 'bookNo' FROM books
+    </select>
+
+
+    <select id="select_book_by_no" resultType="BookDTO" resultMap="selectBookWithBookChaptersByBookNo">
+        SELECT
+            B.book_no AS 'bookNo',
+            BC.no AS 'bookChapterNo',
+            IF(BL.user_id IS NULL, FALSE, TRUE) AS 'isLiked',
+            IF(BO.no IS NULL, FALSE, TRUE) AS 'isBought',
+            B.*, BC.*
+        FROM `book_chapter` BC
+            INNER JOIN `books` B
+            on B.book_no = BC.book_no
+            LEFT OUTER JOIN `book_chapter_order` BO
+            on BO.chapter_no = BC.no AND BO.user_id = #{userId}
+            LEFT OUTER JOIN `book_like` BL
+            on BL.book_no = B.book_no AND BL.user_id = #{userId}
+        WHERE B.book_no = #{bookNo}
+        <if test="sort == 'DESC'">
+            ORDER BY BC.no DESC
+        </if>
+
+    </select>
+    <select id="selectBookByChapters" resultType="BookDTO" resultMap="selectBookWithBookChaptersByBookNo">
+        SELECT
+        B.book_no AS 'bookNo',
+        BC.no AS 'bookChapterNo',
+        B.*, BC.*
+        FROM books B
+            INNER JOIN `book_chapter` BC
+            ON B.book_no = BC.book_no
+        WHERE BC.book_no = #{bookNo} AND BC.no = #{bookChapterNo};
+    </select>
+    <select id="selectBookAllChapters" resultType="BookChapterDTO">
+        SELECT * FROM book_chapter WHERE book_no = #{bookNo};
+    </select>
+
+    <select id="findAllBooksByTitle" resultType="BookDTO" resultMap="selectBookWithBookChaptersByBookNo">
+        SELECT *
+        FROM books
+        WHERE book_title LIKE CONCAT('%', #{search} ,'%');
+    </select>
+
+<!--    <select id="findBooksTitle" resultType="list" parameterType="map">-->
+<!--        SELECT bookTitle-->
+<!--        FROM books-->
+<!--        WHERE book_title LIKE CONCAT('%', #{search} ,'%');-->
+<!--    </select>-->
+
+    <select id="findUserIdWithBoughtBook" resultType="BookChapterDTO">
+        SELECT
+        bo.chapter_no,
+        bo.user_id
+        FROM
+        ebook_project.book_order bo
+        LEFT OUTER JOIN
+        ebook_project.book_chapter bc
+        ON
+        bo.no = bc.no
+
+        UNION
+
+        SELECT
+        bc.book_no,
+        NULL AS user_id
+        FROM
+        ebook_project.book_chapter bc
+        WHERE
+        bc.no NOT IN (SELECT no FROM ebook_project.book_order);
+    </select>
+</mapper>

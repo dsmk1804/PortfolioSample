@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 | KOREAIT</title>
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <link rel="stylesheet" href="../../static/css/user/register.css" th:href="@{/css/user/register.css}">
+    <script src="https://kit.fontawesome.com/d19fdaba43.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <script src="../../static/js/user/register.js" th:src="@{/js/user/register.js}" defer></script>
+</head>
+<body>
+    <main>
+        <h1>회원가입</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input id="token" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+            <label id="Identity-verification-section">
+                <h3>본인 인증</h3>
+                <input type="hidden" name="impUid" id="imp-uid">
+                <button id="cert-btn" type="button">본인 인증</button>
+                <div class="valid-check certification">
+                    반드시 본인 인증을 해주세요
+                </div>
+            </label>
+
+            <h3>필수정보</h3>
+            <section class="form-section">
+                <label>
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" name="userId" id="id" placeholder="아이디 (4-16글자)" maxlength="16">
+                    <button id="id-duplication-btn" type="button">중복확인</button>
+                </label>
+            </section>
+
+            <div class="valid-check id">
+                아이디는 4-16 글자 내여야 합니다
+            </div>
+
+            <section class="form-section">
+                <label>
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" name="userPassword" class="pw-input" placeholder="비밀번호 (영문자 및 숫자, 특수문자 포함)">
+                    <button class="pw-view-btn" type="button"><i class="fa-solid fa-eye"></i></button>
+                </label>
+            </section>
+            <div class="valid-check pw1">
+                영문자 및 숫자, 특수문자 포함
+            </div>
+
+            <section class="form-section">
+                <label>
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" class="pw-input" placeholder="비밀번호 재입력">
+                    <button class="pw-view-btn" type="button"><i class="fa-solid fa-eye"></i></button>
+                </label>
+            </section>
+            <div class="valid-check pw2">
+                영문자 및 숫자, 특수문자 포함
+            </div>
+
+            <section class="form-section" id="email-section">
+                <label>
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" id="email-head" placeholder="이메일 주소">
+                    <input type="hidden" id="full-email" name="userEmail">
+                </label>
+                <span>@</span>
+                <label>
+                    <input type="text" id="email-tail">
+                </label>
+                <label class="email-select">
+                    <select id="email-select-section">
+                        <option selected disabled>직접입력</option>
+                        <option>naver.com</option>
+                        <option>google.com</option>
+                        <option>nate.com</option>
+                    </select>
+                </label>
+            </section>
+            <div class="valid-check email">
+                유효한 이메일 주소를 작성하세요
+            </div>
+            <section class="form-section">
+                <label>
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="이름" name="userName">
+                </label>
+            </section>
+
+            <h3>선택정보</h3>
+
+            <section class="form-section">
+                <label>
+                    <i class="fa-solid fa-signature"></i>
+                    <input type="text" placeholder="닉네임" name="userNickname">
+                </label>
+            </section>
+
+            <section class="form-section">
+                <label>
+                    <span>프로필 사진</span>
+                    <input type="file" name="userProfileImage.file" accept="image/jpeg,image/png">
+                </label>
+            </section>
+            
+            <section class="button-section">
+                <button type="submit" id="register-btn">회원가입</button>
+                <button type="button" id="cancel-btn">취소</button>
+            </section>
+
+            <input type="hidden" th:value="${0}" name="userCash">
+
+
+
+        </form>
+    </main>
+</body>
+</html>

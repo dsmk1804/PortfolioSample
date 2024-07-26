@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>상세페이지</title>
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <link href="../static/css/detail.css" rel="stylesheet" th:href="@{/css/detail.css}">
+    <link href="../static/css/public/public.css" rel="stylesheet" th:href="@{/css/public/public.css}">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/d19fdaba43.js"></script>
+    <script src="../static/js/detail.js" th:src="@{/js/detail.js}" defer></script>
+    <script src="../static/js/user/like.js" th:src="@{/js/user/like.js}" defer></script>
+</head>
+<body>
+<main layout:fragment="main">
+    <!--상세 페이지 부분-->
+    <section id="book-detail-section">
+        <div id="book-detail-div">
+            <div id="book-detail-img-div">
+                <div id="detail-img" th:style="|background-image: url('${book.bookImage.fileUrl}')|">
+                    <!-- 책 이미지를 여기에 넣으시면 됩니다 -->
+                </div>
+            </div>
+        </div>
+        <div id="book-detail-info-div">
+            <div th:text="${book.bookTitle}" id="detail-title">이것이 자바다 (교육현장에서 가장 많이 쓰인 JAVA 프로그래밍 기본서)</div>
+            <div id="detail-content">
+                <div id="save-btn-div">
+                    <span th:text="${book.bookAuthor.replace('글','글 : ')}">저자 신용권, 임경균</span>
+
+                    <button th:if="${book.isLiked}" th:data="${book.bookNo}" class="save" active>
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    <button th:unless="${book.isLiked}" th:data="${book.bookNo}" class="save">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <span th:text="${book.bookPublisher.replace('출판사','출판사 : ')}">출판 한빛미디어 2024.04.01</span>
+                <span id="book-description-section" class="scroll" th:text="${book.bookDescription.replace('접기','')}">최신 JAVA 21 버전 반영! 9년 동안 꾸준히 사랑받은 자바 베스트셀러, 『이것이 자바다』 3판!</span>
+            </div>
+        </div>
+    </section>
+    <!--파트 선택 부분-->
+    <section id="part-section">
+        <section id="select-section">
+            <a th:href="@{|/detail/${book.bookNo}/ASC|}" id="latest-sort">최신순</a>
+            <span> | </span>
+            <a th:href="@{|/detail/${book.bookNo}/DESC|}" id="first-sort">첫화부터</a>
+
+        </section>
+        <ul id="part-selection">
+            <li class="part" th:each="chapter, stat:${book.bookChapters}">
+                <div class="part-chapter-container">
+                    <b th:text="${stat.count}" class="part-chapter">PART01</b>
+                    <span class="part-name" th:text="${chapter.bookChapterName}">파트제목</span>
+                    <span class="part-date" th:text="${chapter.bookUploadDate}">작성 날짜</span>
+                </div>
+                <div class="part-btn-container">
+                    <span class="cash-date" th:text="|${chapter.bookChapterPrice}캐시|">가격</span>
+                    <button class="buy-btn" type="button" th:unless="${chapter.isBought}" th:onclick="|buy_chapter(${chapter.no});|">구매</button>
+                    <a class="view-btn view" th:href="@{|/viewerpage/${book.bookNo}/${chapter.no}|}"  th:if="${chapter.isBought}" type="button">보기</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>

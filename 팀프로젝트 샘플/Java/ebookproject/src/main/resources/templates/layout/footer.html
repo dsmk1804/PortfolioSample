@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/public/footer.css" th:href="@{/css/public/footer.css}">
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+
+</head>
+<body>
+    <footer th:fragment="footer">
+        <section>
+            <div id="first-footer">
+                <a href="">회사소개</a>
+                <a href="">이용약관</a>
+                <a href="">개인정보처리방침</a>
+                <a href="">청소년보호정책</a>
+                <a href="">공지사항</a>
+            </div>
+            <div id="second-footer">
+                <span>(주)카카오엔터테인먼트 사업자 정보</span>
+                <span>공동대표이사 권기수, 장윤중|호스팅서비스사업자 (주)카카오엔터테인먼트</span>
+                <span>사업자 등록 번호 220-88-02594|통신판매업신고 2018-성남분당B-0004</span>
+                <span>대표전화 1644-4755|이메일 contact@kakaopage.com|경기도 성남시 분당구 판교역로 221|사업자 정보 확인</span>
+            </div>
+            <div id="third-footer">
+                <span>
+                    ⓒ Kakao Entertainment Corp.
+                </span>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

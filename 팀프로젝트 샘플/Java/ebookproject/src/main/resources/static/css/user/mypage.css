@@ -1,0 +1,234 @@
+main{
+    width: 1000px;
+    margin: var(--main-margin);
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+main > section{
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+#my-info-section{
+    margin: 10px 50px;
+}
+
+#my-info-section > h1{
+    font-size: var(--font-size-XXXlarge);
+    padding: 40px 60px;
+}
+
+#password-change-btn a{
+    color: black;
+}
+
+#my-info-detail-section{
+    display: flex;
+}
+
+#my-info-image-section{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#my-info-image-section > div{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(170,170,170,0.4);
+    border: 1px solid rgba(170,170,170,0.8);
+}
+
+#my-info-image-section img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+#my-info-span-section{
+    width: 580px;
+    height: 300px;
+    padding: 50px;
+    /*background-color: rgba(170,170,170,0.3);*/
+    border: 1px solid rgba(170,170,170,0.8);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+
+}
+#my-info-span-section div{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    margin: 5px 0;
+    border-bottom: 1px solid black;
+}
+#password-change-btn{
+    display: flex;
+    justify-content: right;
+    border-bottom: none;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+}
+
+/*******************************************/
+
+#cash-section{
+    margin: 100px 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    border-radius: 10px;
+}
+#cash-section div{
+    margin: 0 30px;
+}
+#cash-section button{
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/*********************************************/
+
+#my-info-like-list{
+    display: flex;
+    flex-direction: column;
+}
+
+#like-list-name-section{
+    display: flex;
+    /*padding: 0 75px;*/
+}
+
+#like-list-name-section div{
+    width: 100%;
+    text-align: center;
+}
+
+#like-list-name-section button{
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    border: 1px solid rgba(170,170,170,0.8);
+    border-radius: 20px 20px 0 0;
+    cursor: pointer;
+}
+#like-list-name-section button:hover{
+    opacity: 0.7;
+}
+#like-list-name-section button:active{
+    opacity: 0.7;
+    background-color: gray;
+}
+
+/********************************************/
+
+#like-list-section{
+    display: block;
+    padding: 0 75px;
+    height: 1000px;
+    overflow: scroll;
+    border: 1px solid rgba(170,170,170,0.7);
+    border-top: none;
+    box-shadow: 2px 3px 2px 0 rgba(170,170,170,0.5);
+}
+#none-like{
+    margin: 80px 0;
+}
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+.like-list{
+    display: flex;
+    margin: 20px 0;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(170,170,170,0.7);
+}
+.like-list > div{
+    align-items: center;
+}
+
+.like-list img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.like-list > div:first-child{
+    width: 200px;
+    height: 250px;
+    margin-right: 20px;
+}
+.like-list > div:nth-child(2){
+    width: 100%;
+    padding-top: 30px;
+}
+.like-list > div:nth-child(2) i{
+    color: red;
+    cursor: pointer;
+}
+.like-list > div:nth-child(2) > div{
+    margin: 25px 0;
+}
+.like-list > div:nth-child(2) > div:first-child{
+    display: flex;
+    justify-content: space-between;
+}
+#like-btn{
+    border: none;
+    background-color: white;
+}
+/***********************************************/
+
+#buy-list-section{
+    display: block;
+    padding: 50px 75px 0 75px;
+    height: 1000px;
+    overflow: scroll;
+    border: 1px solid rgba(170,170,170,0.7);
+    border-top: none;
+    box-shadow: 2px 3px 2px 0 rgba(170,170,170,0.5);
+}
+.buy-list{
+    padding: 30px 5px;
+    display: block;
+    border-bottom: 1px solid rgba(170,170,170,0.7);
+}
+.buy-list:first-child{
+    border-top: 1px solid rgba(170,170,170,0.7);
+}
+#count{
+    margin-right: 20px;
+}
+#text-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buy-list-title{
+    font-size: var(--font-size-large);
+}
+.buy-list-author{
+    font-size: var(--font-size-Xsmall);
+}
+.buy-list-publisher{
+    font-size: var(--font-size-Xsmall);
+}
+.buy-list-category{
+    font-size: var(--font-size-Xsmall);
+    margin-right: 30px;
+}
+.buy-list-date{
+    font-size: var(--font-size-Xsmall);
+}

@@ -1,0 +1,193 @@
+header{
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+}
+
+header > form {
+    padding: 10px 30px; /* 헤더 내부 여백 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+#e-book-category-div {
+    display: flex;
+    align-items: center;
+}
+
+.img{
+    width: 80px;
+    height: 50px;
+    margin-right: 80px;
+}
+
+#e-book-category-div > .genre {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    padding: 2px 0;
+    margin: 0 20px;
+    &:hover{
+        border-bottom: 1px solid coral;
+        color: coral;
+    }
+}
+#e-book-category-div > button:nth-child(2){
+    margin-right: 15px;
+}
+
+#header-user-div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.search-form{
+    position: relative;
+}
+
+.search-label{
+    display: flex;
+    background-color: #eeeded;
+    padding: 10px 15px;
+    border-radius: 24px;
+}
+
+#h1-result{
+    margin: 0 20px 30px 35px;
+}
+
+
+.search-label > input{
+    flex: 1;
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: unset;
+    outline: unset;
+    border: none;
+}
+
+#search-button, #user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.search-section{
+    display: none;
+}
+
+.search-section{
+    position: absolute;
+    border-radius: 5px;
+    bottom: -25px;
+    background-color: #dedede;
+    padding: 10px;
+    width: 110%;
+}
+
+
+.search-section > h4{
+    margin-bottom: 10px;
+}
+.search-view{
+    list-style-position: inside;
+}
+/*******************************************/
+#my-page-section-div{
+    display: flex;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#my-page-section > div > button{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/*******************************************/
+#my-page-section-section{
+    display: none;
+    padding-left:  5px;
+    padding-right: 5px;
+    position: absolute;
+    right: 30px;
+    background-color: #eeeded;
+    width: 180px;
+    height: auto;
+}
+#my-page-section.show + #my-page-section-section{
+    display: block;
+}
+
+
+.my-page-div{
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color:white;
+}
+
+.my-page-point{
+    background-color: white;
+    padding: 5px;
+}
+.my-page-point > button{
+    padding: 3px 8px;
+}
+.my-page-point > h4{
+    width: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.my-page-point{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.my-cash,#logout-btn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#logout-btn,#login-btn{
+    background-color: white;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0;
+    margin-bottom: 10px;
+}
+
+#cash-charge{
+    cursor: pointer;
+}
+
+#search-button{
+    border: none;
+    background-color: unset;
+    padding: 3px;
+}

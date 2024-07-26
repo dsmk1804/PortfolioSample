@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>캐쉬충전</title>
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <link rel="stylesheet" href="../static/css/cashcharge.css" th:href="@{/css/cashcharge.css}">
+    <link rel="stylesheet" href="../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <script src="../static/js/cashcharge.js" th:src="@{/js/cashcharge.js}" defer></script>
+</head>
+<body>
+<main>
+    <div th:text="${#authentication.principal}" hidden></div>
+    <div class="charge-container">
+        <div class="header">캐쉬충전</div>
+        <div class="charge-options">
+            <div class="charge-units">
+                <label class="charge-unit"><input type="radio" name="amount" value="1000">1000원</label>
+                <label class="charge-unit"><input type="radio" name="amount" value="5000">5000원</label>
+                <label class="charge-unit"><input type="radio" name="amount" value="10000">10000원</label>
+                <label class="charge-unit"><input type="radio" name="amount" value="50000">30000원</label>
+                <label class="charge-unit"><input type="radio" name="amount" value="50000">50000원</label>
+            </div>
+        </div>
+        <button class="charge-button">충전하기</button>
+    </div>
+</main>
+
+</body>
+</html>

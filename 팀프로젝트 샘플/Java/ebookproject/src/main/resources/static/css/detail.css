@@ -1,0 +1,168 @@
+main{
+    padding: 0 20px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* 바디 부분 */
+#book-detail-section {
+    display: flex;
+    border-bottom: 1px solid rgba(170,170,170,0.7);
+    padding-bottom: 100px;
+}
+
+#book-detail-div {
+    display: flex;
+    align-items: flex-start;
+    /*position: relative;*/
+}
+
+#book-detail-img-div {
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    /*border-right: 1px solid black;*/
+}
+#detail-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#book-detail-info-div {
+    flex: 1;
+    background-color: white;
+    font-weight: normal;
+}
+
+#book-detail-info-div > div{
+    padding: 20px;
+}
+#detail-title{
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+}
+
+#detail-content {
+    background-color: white;
+    padding: 20px;
+}
+
+#detail-content span {
+    display: block;
+    padding: 5px 0;
+}
+#detail-content span:last-child{
+    line-height: 25px;
+}
+
+#book-description-section{
+    overflow: scroll;
+}
+.scroll::-webkit-scrollbar{
+    display: none;
+}
+#save-btn-div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#save-btn-div > .save{
+    background-color: transparent;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#save-btn-div i {
+    font-size: var(--font-size-midium);
+}
+
+/* 파트 선택 부분 */
+
+#select-section{
+    display: flex;
+    justify-content: right;
+    padding: 4px;
+    border-radius: 10px 10px 0 0;
+    background-color: rgba(170,170,170,0.2);
+}
+#select-section a{
+    font-size: var(--font-size-Xsmall);
+    font-weight: bold;
+    margin: 3px;
+    cursor: pointer;
+    border: none;
+    background-color: unset;
+}
+
+
+.part {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom:1px solid black
+}
+.part:last-child{
+    border:none;
+}
+#part-section{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.part-chapter-container{
+    align-items: center;
+}
+.part-btn-container{
+    align-items: center;
+}
+.part-chapter-container span{
+    display: inline-block;
+    margin-right: 10px;
+}
+.part-chapter{
+    font-size: var(--font-size-midium);
+}
+.part-name{
+    font-size: var(--font-size-midium);
+}
+.part-date{
+    font-size: var(--font-size-XXsmall);
+}
+.part-btn-container > span{
+    font-size: var(--font-size-small);
+    margin-right: 10px;
+}
+.part-btn-container > button, .part-btn-container > a{
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: var(--font-size-Xsmall);
+    cursor: pointer;
+    background-color: rgba(170,170,170,0.3);
+    &:hover{
+        opacity: 0.8;
+    }
+}
+#buy-btn, #cart-btn{
+    display: flex;
+}
+#buy-btn[active], #cart-btn[active]{
+    display: none;
+}
+
+#view-btn{
+    display: none;
+}
+#view-btn[active]{
+    display: flex;
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ebook.mapper.UserMapper">
+    <resultMap id="selectUserWithImageMap" type="UserDTO" autoMapping="true">
+        <id property="userId" column="user_id" />
+        <association property="userProfileImage" javaType="FileDTO">
+            <id property="data" column="user_profileImage" />
+        </association>
+    </resultMap>
+
+    <update id="updateCashByUser">
+        UPDATE `user`
+        SET `user_cash` = `user_cash` + #{amount}
+        WHERE `user_id` = #{user.userId}
+    </update>
+
+    <select id="selectUserById" resultType="UserDTO" resultMap="selectUserWithImageMap">
+        SELECT * FROM `user` WHERE user_id = #{userId}
+    </select>
+    <select id="selectUserByCi" resultType="UserDTO" resultMap="selectUserWithImageMap">
+        SELECT * FROM `user` WHERE user_ci = #{userCi}
+    </select>
+    <select id="selectCustomUserById" resultType="com.ebook.dto.user.CustomUserDTO">
+        SELECT * FROM `custom_user` WHERE id = #{id}
+    </select>
+    <select id="selectUserByNameAndEmail" resultType="UserDTO" resultMap="selectUserWithImageMap">
+        SELECT * FROM `user` WHERE user_name = #{userName} OR user_email = #{userEmail}
+    </select>
+    <select id="selectUserByIdAndNameAndEmail" resultType="UserDTO" resultMap="selectUserWithImageMap">
+        SELECT `user`.user_password FROM `user`
+        WHERE user_id = #{userId} AND user_name = #{userName} AND user_email = #{userEmail}
+    </select>
+
+    <insert id="insertUser">
+        INSERT INTO `user`
+        VALUES
+        (#{userId}, #{userCi}, #{userPassword}, #{userEmail}, #{userName}, #{userNickname}, #{userProfileImage.data}, #{userCash})
+    </insert>
+
+    <insert id="insertSocialUser">
+        INSERT INTO `custom_user` VALUES (#{id}, #{ci}, #{name}, #{email}, #{nickName}, #{profileImageUrl})
+    </insert>
+
+
+    <update id="resetUserPassword">
+        UPDATE `user` SET user_password=#{password} WHERE user_id = #{id} AND user_name = #{name} AND user_email = #{email}
+    </update>
+
+
+    <insert id="insertCashCharge">
+        INSERT INTO `ebook_project`.`cash_charge`
+        (`merchant_uid`,
+        `imp_uid`,
+        `user_id`,
+        `name`,
+        `cash_amount`,
+        `paid_amount`,
+        `pg_provider`,
+        `paid_at`)
+        VALUES
+        (#{cashCharge.merchantUid},
+        #{cashCharge.impUid},
+        #{userId},
+        #{cashCharge.name},
+        #{cashCharge.cashAmount},
+        #{cashCharge.paidAmount},
+        #{cashCharge.pgProvider},
+        #{cashCharge.paidAt}
+        );
+
+    </insert>
+
+    <insert id="insertUserByBook">
+        insert into `book_chapter_order` (`no`, `chapter_no`, `user_id`, `cash_amount`) values (NULL, #{no}, #{user.userId}, #{bookChaptersPrice});
+    </insert>
+
+    <update id="updateUserCash">
+        UPDATE `user` SET user_cash = user_cash + #{cashAmount}
+        WHERE user_id = #{userId}
+    </update>
+
+    <update id="updateBuyResult">
+        UPDATE `user` SET user_cash = user_cash - #{chaptersPrice}
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="selectChapterPrice" parameterType="integer" resultType="integer">
+        Select `book_chapter_price` from `book_chapter` where `no` = #{chapterNo}
+    </select>
+
+    <!-- ===========유저 좋아요 관련=========== -->
+    <!-- ===========마이페이지에서 좋아요 목록 가져오기 ===========   -->
+    <select id="selectBookByUserLike" resultMap="com.ebook.mapper.BookMapper.selectBookWithBookChaptersByBookNo">
+        SELECT
+            B.*
+        FROM `book_like` BL
+            INNER JOIN  `user` U
+            ON BL.user_id = U.user_id
+            LEFT OUTER JOIN `books` B
+            ON BL.book_no = B.book_no
+        WHERE U.user_id = #{userId}
+    </select>
+
+    <resultMap id="selectBookByUserBoughtMap" type="BookDTO" autoMapping="true">
+        <association property="bookImage" javaType="FileDTO">
+            <id property="data" column="book_image" />
+        </association>
+        <collection property="bookChapters" ofType="BookChapterDTO" javaType="list" autoMapping="true">
+            <id property="no" column="bookChapterNo" />
+        </collection>
+    </resultMap>
+
+    <select id="selectBookByUserBought" resultMap="selectBookByUserBoughtMap">
+        SELECT B.*,BC.*
+        FROM `book_chapter_order` BO
+            INNER JOIN `book_chapter` BC
+            ON BO.chapter_no = BC.no
+            LEFT OUTER JOIN `books` B
+            ON BC.book_no = B.book_no
+        WHERE BO.user_id = #{userId};
+    </select>
+
+    <select id="SelectUserInfo" resultType="UserDTO" resultMap="selectUserWithImageMap">
+        SELECT * FROM user
+    </select>
+    <!-- ===========유저가 책 좋아요===========   -->
+    <insert id="insertBookLike">
+        INSERT INTO `book_like` VALUES (NULL, #{userId}, #{bookNo})
+    </insert>
+    <!-- ===========유저가 책 좋아요 취소===========   -->
+    <delete id="deleteBookLike">
+        DELETE FROM `book_like` WHERE  user_id = #{userId} AND book_no = #{bookNo}
+    </delete>
+</mapper>

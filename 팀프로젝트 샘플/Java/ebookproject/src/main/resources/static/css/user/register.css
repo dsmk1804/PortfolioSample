@@ -1,0 +1,158 @@
+main{
+    width: 800px;
+    margin: 80px auto;
+}
+main  h1{
+    text-align: center;
+    margin: 20px 0;
+}
+
+#Identity-verification-section{
+    margin: 50px 0;
+}
+#Identity-verification-section button{
+    width: 100%;
+    height: 40px;
+    margin: 30px 0 20px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color4);
+    cursor: pointer;
+}
+
+form{
+    padding: 10px 40px;
+}
+form > h3{
+    margin-top: 20px;
+}
+
+.form-section{
+    display: flex;
+    margin: 14px 0;
+    /*background-color: crimson;*/
+}
+
+.form-section label{
+    flex: 1;
+    display: flex;
+    height: 50px;
+    padding: 12px;
+    align-items: center;
+    font-size: var(--font-size-midium);
+    border: 1px solid black;
+    border-radius: 6px;
+    transition-duration: 0.05s;
+}
+.form-section label[active]{
+    outline: 2px solid black;
+}
+.form-section > label > i{
+    margin-left: 10px;
+    font-size: var(--font-size-large);
+    color: var(--color1);
+}
+.form-section > label input{
+    padding: 5px;
+    flex: 1;
+    font-size: var(--font-size-midium);
+    border: none;
+    outline: none;
+}
+
+#id-duplication-btn{
+    border: none;
+    border-radius: 6px;
+    padding: 8px 5px;
+    font-size: var(--font-size-Xsmall);
+    cursor: pointer;
+    background-color: var(--color4);
+}
+#id-duplication-btn:hover{
+    opacity: 0.8;
+}
+/*************************************/
+.pw-view-btn{
+    border: none;
+    background-color: unset;
+    font-size: var(--font-size-midium);
+    cursor: pointer;
+    color: var(--color1);
+}
+/***********************************/
+#email-section label{
+    display: flex;
+}
+
+.email-select{
+    margin-left: 10px;
+}
+.email-select > select{
+    width: 100%;
+    height: 100%;
+    font-size: var(--font-size-small);
+    padding: 2px 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+#email-section{
+    display: flex;
+}
+
+#email-section span{
+    display: inline-block;
+    align-self: center;
+    padding: 4px;
+    font-size: var(--font-size-large);
+}
+
+/***********************/
+.button-section{
+    display: flex;
+    margin: 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+.button-section > button{
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 5px 20px;
+    font-size: var(--font-size-XXlarge);
+    cursor: pointer;
+}
+.button-section > button:hover{
+    opacity: 0.8;
+}
+.button-section > button:first-child{
+    background-color: var(--color3);
+}
+.button-section > button:last-child {
+    background-color: var(--color4);
+}
+
+/*********************************/
+.valid-check{
+    display: none;
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: var(--font-size-small);
+}
+.valid-check[active]{
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

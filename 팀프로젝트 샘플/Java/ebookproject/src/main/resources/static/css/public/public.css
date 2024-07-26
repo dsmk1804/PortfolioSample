@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'MICEGothic Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+*{
+    font-family: 'MICEGothic Bold';
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    --font-size-XXsmall : 10px;
+    --font-size-Xsmall : 13px;
+    --font-size-small : 15px;
+    --font-size-midium : 17px;
+    --font-size-large : 19px;
+    --font-size-Xlarge : 21px;
+    --font-size-XXlarge : 23px;
+    --font-size-XXXlarge : 25px;
+
+    --color1 : #402F2B;
+    --color2 : #73493F;
+    --color3 : #A6705D;
+    --color4 : #D9AE96;
+    --color5 : #F2E5D5;
+
+    --main-width : 1500px;
+    --main-margin : 15px auto;
+}

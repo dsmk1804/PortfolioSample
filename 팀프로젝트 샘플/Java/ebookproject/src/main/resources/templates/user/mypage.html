@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+    <title>내 정보 페이지</title>
+    <link rel="stylesheet" href="../../static/css/user/mypage.css" th:href="@{/css/user/mypage.css}">
+    <link rel="stylesheet" href="../../static/css/public/public.css" th:href="@{/css/public/public.css}">
+    <script src="https://kit.fontawesome.com/d19fdaba43.js" crossorigin="anonymous"></script>
+    <script src="../../static/js/mypage.js" th:src="@{/js/mypage.js}" defer></script>
+    <script src="../../static/js/user/like.js" th:src="@{/js/user/like.js}" defer></script>
+    <script src="../../static/js/public/header.js" th:src="@{/js/public/header.js}" defer></script>
+</head>
+<body>
+    <main layout:fragment="main">
+        <section th:object="${#authentication.principal}">
+            <section id="my-info-section">
+                <h1>내 정보</h1>
+                <section id="my-info-detail-section">
+                    <div id="my-info-image-section">
+                        <div>
+                            <img th:src="|*{userProfileImage.fileUrl}|" src="https://cdn.inflearn.com/public/users/thumbnails/759418/09bcc1e5-b03d-46ed-8c6b-4aa283267e28" alt="">
+                        </div>
+                    </div>
+                    <div id="my-info-span-section">
+                        <div>
+                            <span>이름 : </span>
+                            <span th:text="*{username}">홍길동</span>
+                        </div>
+                        <section id="password-change-btn">
+                            <a href="/user/resetPassword">
+                                비밀번호 변경
+                            </a>
+                        </section>
+                        <div>
+                            <span>아이디 : </span>
+                            <span th:text="*{userId}">korea</span>
+                        </div>
+                        <div>
+                            <span>닉네임 : </span>
+                            <span th:text="*{userNickname}">라이언</span>
+                        </div>
+                        <div>
+                            <span>이메일 : </span>
+                            <span th:text="*{userEmail}">99999@naver.com</span>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section id="cash-section">
+                <div>
+                    <span>보유 캐시 : </span>
+                    <span th:text="*{userCash}"></span>
+                </div>
+                <div>
+                    <button id="charge-btn" type="button">충전</button>
+                </div>
+            </section>
+
+            <section id="my-info-like-list">
+                <div id="like-list-name-section">
+                    <div>
+                        <button onclick="location.href = '/user/mypage?list=like'">좋아요 목록</button>
+                    </div>
+                    <div>
+                        <button onclick="location.href = '/user/mypage?list=buy'">구매 목록</button>
+                    </div>
+                </div>
+                <div>
+                    <section id="like-list-section" class="scroll" th:if="${query == 'like'}">
+                        <div id="none-like" th:if="${likeBooks.size() == 0}">
+                            <b>좋아요 내역이 없습니다</b>
+                        </div>
+                        <a th:href="@{|/detail/${likeBook.bookNo}/ASC|}" class="like-list" th:each="likeBook: ${likeBooks}">
+                            <div>
+                                <img th:src="${likeBook.bookImage.fileUrl}" src="https://i.ytimg.com/vi/IBG4hCwqq6U/maxresdefault.jpg"  alt=""/>
+                            </div>
+                            <div>
+                                <div class="like-btn">
+                                    <span th:text="${likeBook.bookTitle}">1. 이것이 자바다</span>
+                                    <button id="like-btn" type="button" th:data="${likeBook.bookNo}" class="save" active>
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <span th:text="${likeBook.bookAuthor}">저자 : 신용권, 임경균</span>
+                                    <span th:text="${likeBook.bookPublisher}">출판 미디어 2024.04.01</span>
+                                </div>
+                            </div>
+                        </a>
+                    </section>
+                    <section id="buy-list-section" class="scroll" th:if="${query == 'buy'}">
+                        <div id="none-bought" th:if="${buyBooks.size() == 0}">
+                            <b>좋아요 내역이 없습니다</b>
+                        </div>
+                        <a th:href="@{|/detail/${buyBook.bookNo}/ASC|}" th:each="buyBook, stat: ${buyBooks}" class="buy-list">
+                            <div id="text-area">
+                                <div>
+                                    <span id="count" th:text="${stat.count + ' . '}"></span>
+                                    <span class="buy-list-title" th:text="${buyBook.bookTitle}">1. 이것이 자바다</span>
+                                    <span class="buy-list-author" th:text="${buyBook.bookAuthor}">저자 : 신용권, 임경균</span>
+                                    <span class="buy-list-publisher" th:text="${buyBook.bookPublisher}">출판 미디어 2024.04.01</span>
+                                </div>
+                                <div>
+                                    <span class="buy-list-category" th:text="${buyBook.bookChapters[0].bookChapterName}">책 제목</span>
+                                    <span class="buy-list-date" th:text="${buyBook.bookChapters[0].bookUploadDate}">작성 날짜</span>
+                                </div>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </section>
+        </section>
+
+    </main>
+</body>
+</html>
