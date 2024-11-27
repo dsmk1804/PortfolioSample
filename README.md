@@ -3,7 +3,7 @@
 ## <1> ebook 사이트 제작
 ### 샘플 경로: (https://github.com/dsmk1804/PortfolioSample/tree/main/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%98%ED%94%8C/Java/ebookproject)
 
-!("C:\Users\aeran\OneDrive\사진\스크린샷\스크린샷(125).png")
+![스크린샷(125)](https://github.com/user-attachments/assets/1a7bdde6-002f-40ed-a44f-f69fc2d80e1c)
 
 - 작업 기간: 2024.05.20 ~ 2024.07.23
 - 작업인원: 3명
@@ -30,6 +30,8 @@ Python과 MariaDB를 사용하여 데이터베이스와 서버 사이의 통신 
 
 ## <3> AI가 추천해주는 애니메이션-상품 매칭 서비스
 ### 샘플 경로: 팀 프로젝트 샘플 > Python > AiAnimationCollab > pythonProject
+
+![스크린샷(132)](https://github.com/user-attachments/assets/5210bdb5-46b6-4925-b212-fa62e903a732)
 
 - 작업 기간: 2024.05.20 ~ 2024.07.23
 - 작업인원: 3명
