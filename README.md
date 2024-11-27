@@ -1,7 +1,7 @@
 # 포트폴리오용 팀 프로젝트 샘플입니다.
 
 ## <1> ebook 사이트 제작
-### 경로: (https://github.com/dsmk1804/PortfolioSample/tree/main/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%98%ED%94%8C/Java/ebookproject)
+### 샘플 경로: (https://github.com/dsmk1804/PortfolioSample/tree/main/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%98%ED%94%8C/Java/ebookproject)
 
 !("C:\Users\aeran\OneDrive\사진\스크린샷\스크린샷(125).png")
 
@@ -17,7 +17,7 @@ MySQL에 책의 표지, 제목, 내용을 저장하는 테이블 생성.
 
 
 ## <2> 날씨에 따라 스타일링을 추천해주는 웹 개발 서비스
-### 경로: 팀 프로젝트 샘플 > Python > 3Wchatbot 
+### 샘플 경로: 팀 프로젝트 샘플 > Python > 3Wchatbot 
 
 - 작업 기간: 2024.05.20 ~ 2024.07.23
 - 작업인원: 4명
@@ -29,7 +29,7 @@ Python과 MariaDB를 사용하여 데이터베이스와 서버 사이의 통신 
 사용자 인터페이스와 챗봇의 상호작용을 구현.
 
 ## <3> AI가 추천해주는 애니메이션-상품 매칭 서비스
-### 경로: 팀 프로젝트 샘플 > Python > AiAnimationCollab > pythonProject
+### 샘플 경로: 팀 프로젝트 샘플 > Python > AiAnimationCollab > pythonProject
 
 - 작업 기간: 2024.05.20 ~ 2024.07.23
 - 작업인원: 3명
