@@ -1,7 +1,7 @@
 # 포트폴리오용 팀 프로젝트 샘플입니다.
 
 ## <1> ebook 사이트 제작
-## 경로: 팀 프로젝트 샘플 > Java > ebookproject
+## 경로: (https://github.com/dsmk1804/PortfolioSample/tree/main/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%98%ED%94%8C/Java/ebookproject)
 
 ![ebook 사이트 제작 사이트 샘플 사진] ("C:\Users\aeran\OneDrive\사진\스크린샷\스크린샷(125).png")
 
