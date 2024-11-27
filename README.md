@@ -1,7 +1,9 @@
 # 포트폴리오용 팀 프로젝트 샘플입니다.
 
-<1> ebook 사이트 제작
-팀 프로젝트 샘플 > Java > ebookproject
+## <1> ebook 사이트 제작
+## 팀 프로젝트 샘플 > Java > ebookproject
+
+![ebook 사이트 제작 사이트 샘플 사진] ("C:\Users\aeran\OneDrive\사진\스크린샷\스크린샷(125).png")
 
 - 작업 기간: 2024.05.20 ~ 2024.07.23
 - 작업인원: 3명
