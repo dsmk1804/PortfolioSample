@@ -21,7 +21,7 @@ MySQL에 책의 표지, 제목, 내용을 저장하는 테이블 생성.
 
 ![스크린샷(144)](https://github.com/user-attachments/assets/639de0a7-1b4c-4831-89c6-5179389a3539)
 
-- 작업 기간: 2024.05.20 ~ 2024.07.23
+- 작업 기간: 2023.08.26 ~ 2023.09.30
 - 작업인원: 4명
 - 작업 툴: Windows, 구름IDE, Python, MariaDB
 - 담당 역할: 풀스택 개발자
@@ -35,7 +35,7 @@ Python과 MariaDB를 사용하여 데이터베이스와 서버 사이의 통신 
 
 ![스크린샷(132)](https://github.com/user-attachments/assets/5210bdb5-46b6-4925-b212-fa62e903a732)
 
-- 작업 기간: 2024.05.20 ~ 2024.07.23
+- 작업 기간: 2023.06.10 ~ 2024.08.22
 - 작업인원: 3명
 - 작업 툴: Windows, PyCharm, Python, Flask, Selenium
 - 담당 역할: 풀스택 개발자
