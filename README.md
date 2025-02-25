@@ -24,11 +24,11 @@ MySQL에 책의 표지, 제목, 내용을 저장하는 테이블 생성.
 - 작업 기간: 2023.09.06 ~ 2023.09.22
 - 작업인원: 4명
 - 작업 툴: Windows, 구름IDE, Python, MariaDB
-- 담당 역할: 풀스택 개발자
+- 담당 역할: 백엔드 개발자
   (1) 백엔드: 네이버와 기상청 API를 사용하여 날씨 데이터를 수집 및 처리.
-Python과 MariaDB를 사용하여 데이터베이스와 서버 사이의 통신 구현.
-  (2) 프론트엔드: 웹사이트용 챗봇 코드 작성.
-사용자 인터페이스와 챗봇의 상호작용을 구현.
+  Python과 MariaDB를 사용하여 데이터베이스와 서버 사이의 통신 구현.
+  웹사이트용 챗봇 코드 작성.
+  사용자 인터페이스와 챗봇의 상호작용을 구현.
 
 ## <3> AI가 추천해주는 애니메이션-상품 매칭 서비스
 ### 샘플 경로: (https://github.com/dsmk1804/PortfolioSample/tree/main/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%98%ED%94%8C/Python/AiAnimationCollab/pythonProject)
