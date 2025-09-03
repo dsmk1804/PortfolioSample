@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>공방 출입을 환영해요!</title>
+</head>
+<body>
+
+  <main>
+    <section class="login-section">
+        <div th:if="${param.error}">
+            <p style="color:red;">아이디 또는 비밀번호가 틀렸습니다.</p>
+        </div>
+        <form id="login-form" th:action="@{/user/login}" method="post">
+        <label>
+          <input type="text" name="id" placeholder="아이디">
+        </label>
+      <label>
+        <input type="password" name="password" placeholder="비밀번호">
+      </label>
+
+      <button type="submit">로그인</button>
+        </form>
+    </section>
+
+  </main>
+
+</body>
+</html>

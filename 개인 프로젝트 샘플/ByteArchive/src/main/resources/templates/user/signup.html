@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <script src="../../static/js/user/signup.js" defer></script>
+</head>
+<body>
+<main>
+    <section class="login-section">
+        <h2>회원 가입을 해주셔서 감사해요!</h2>
+        <form id="login-form" th:action="@{/user/signup}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            <label>
+                <input id="email-input" type="email" name="email" placeholder="가입할 이메일을 입력하세요.">
+            </label>
+            <label>
+                <input id="email-auth-btn" type="button" value="인증번호전송">
+            </label>
+            <label>
+                <input id="email-auth-input" type="text" name="email-auth" placeholder="이메일로 받은 인증번호를 입력해주세요">
+            </label>
+            <label>
+                <input id="id-input" type="text" name="id" placeholder="아이디를 입력해주세요">
+            </label>
+            <label>
+                <input id="name-input" type="text" name="name" placeholder="이름을 입력해주세요">
+            </label>
+            <label>
+                <input id="nickname-input" type="text" name="nickname" placeholder="닉네임을 입력해주세요">
+            </label>
+            <label>
+                <input id="password-input" type="password" name="password" placeholder="비밀번호를 입력해 주세요">
+            </label>
+
+            <button type="submit">회원가입</button>
+
+            <div id="email-duplicate-message" style="display:none; color:red;">이미 사용 중인 이메일입니다.</div>
+            <div id="nickname-duplicate-message" style="display:none; color:red;">이미 사용 중인 닉네임입니다.</div>
+        </form>
+    </section>
+
+</main>
+
+</body>
+</html>

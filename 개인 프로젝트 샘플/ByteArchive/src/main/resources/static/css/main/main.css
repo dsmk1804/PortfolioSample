@@ -1,0 +1,49 @@
+@import "main-public.css";
+@import "../public/public.css";
+
+#main {
+    margin-left: 250px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#main-header{
+    width: 100%;
+
+}
+
+
+.main-title {
+    text-align: center;
+    margin-bottom: 20px; /* 제목 아래 여백 추가 */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 0 20px; /* 좌우 패딩 추가 */
+}
+
+.gallery-item {
+    border: 1px solid #ccc;
+    height: 150px; /* 높이를 증가시켜 사진이 더 잘 보이게 함 */
+    width: 450px;
+    background-color: #f9f9f9; /* 배경색 변경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s; /* 마우스 호버 효과를 위한 전환 추가 */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* 마우스 오버 시 확대 효과 */
+}
+
+#main-footer > #write-button{
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+    font-size: 14px;
+}
+

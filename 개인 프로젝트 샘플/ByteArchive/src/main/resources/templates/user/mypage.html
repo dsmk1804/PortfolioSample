@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>ByteArchive / MyPage </title>
+</head>
+<body>
+
+<main layout:fragment="main" id="main">
+  <header>
+    <section th:id="${user.email}" class="user-info-container">
+      <div>
+        <button>
+          <img th:src="@{|/image/${user.email}|}" src="../../images/profile.jpg" height="150" width="150"/>
+        </button>
+      </div>
+    </section>
+
+    <section class="user-name-section" th:with="me=${#authentication.principal}">
+      <span th:text="${user.nickname}">aniplex_jp</span>
+      <button th:if="${me.email == user.email}" id="profile-edit-btn" type="button">프로필 편집</button>
+    </section>
+  </header>
+
+
+
+
+
+
+
+</main>
+
+
+</body>
+</html>

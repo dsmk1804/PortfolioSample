@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main-layout}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>ByteArchive</title>
+    <link rel="stylesheet" href="../../static/css/main/main.css">
+    <link rel="stylesheet" href="../../static/css/main/aside.css">
+    <link rel="stylesheet" href="../../static/css/public/public.css">
+</head>
+<body>
+<main layout:fragment="main" id="main">
+
+    <header id="main-header">
+        <h1 class="main-title">Welcome To ByteArchive!!</h1>
+    </header>
+
+    <section id="main-section">
+        <div class="gallery">
+            <div class="gallery-item">사진 1</div>
+            <div class="gallery-item">사진 2</div>
+            <div class="gallery-item">사진 3</div>
+            <div class="gallery-item">사진 4</div>
+            <div class="gallery-item">사진 5</div>
+            <div class="gallery-item">사진 6</div>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <button type="button" id="write-button">글쓰기</button>
+    </footer>
+
+</main>
+</body>
+</html>

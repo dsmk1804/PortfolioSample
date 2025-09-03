@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bytearchive.mapper.UserMapper">
+
+    <insert id="insertUser" parameterType="UserDTO">
+        INSERT INTO user (id, email, password, name, nickname)
+        VALUES (#{id}, #{email}, #{password}, #{name}, #{nickname});
+    </insert>
+
+    <select id="getUserByUserInfo" resultType="com.bytearchive.dto.UserDTO">
+        SELECT * FROM user WHERE id = #{id} AND email = #{email} AND name = #{name};
+    </select>
+
+    <select id="getUserById" resultType="com.bytearchive.dto.UserDTO">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+</mapper>

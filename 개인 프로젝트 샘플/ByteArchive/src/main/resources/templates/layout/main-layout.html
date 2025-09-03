@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}">
+  <title>Title</title>
+  <link rel="stylesheet" href="../../static/css/public/public.css">
+  <link rel="stylesheet" href="../../static/css/public/aside.css">
+  <script src="../../static/js/main/aside.js" defer></script>
+</head>
+<body>
+<aside th:replace="~{main/aside :: aside}"></aside>
+<main layout:fragment="main"></main>
+</body>
+</html>

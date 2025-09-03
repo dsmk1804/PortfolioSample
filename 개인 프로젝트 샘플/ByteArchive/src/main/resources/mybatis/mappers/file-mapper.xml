@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bytearchive.mapper.FileMapper">
+
+    <!-- 작품 번호로 파일 조회 -->
+    <select id="selectFileByUuid" parameterType="FileDTO">
+        SELECT
+        art_image AS data,
+        NULL AS uuid,
+        NULL AS order,
+        NULL AS mime_type,
+        NULL AS extension
+        FROM art_work
+        WHERE no = #{uuid}
+    </select>
+
+    <!-- 작품 제목으로 파일 조회 (예시) -->
+    <select id="selectFileByUserEmail" parameterType="FileDTO">
+        SELECT
+        art_image AS data,
+        NULL AS uuid,
+        NULL AS order,
+        NULL AS mime_type,
+        NULL AS extension
+        FROM art_work
+    </select>
+
+</mapper>

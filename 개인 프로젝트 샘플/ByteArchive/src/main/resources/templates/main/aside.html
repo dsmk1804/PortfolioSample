@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>어사이드</title>
+    <link rel="stylesheet" href="../../static/css/main/aside.css">
+    <script src="../../static/js/main/aside.js"></script>
+</head>
+<body>
+<aside th:fragment="aside" id="main-aside">
+
+    <div class="profile">
+        <h2>프로필 사진</h2>
+    </div>
+
+    <p>닉네임: </p>
+    <p>자기 소개: </p>
+
+    <div class="menu">
+        <h2>메뉴</h2>
+        <ul>
+            <li class="major-menu">
+                <span class="menu-title">그림</span>
+                <ul class="sub-menu">
+                    <li>
+                        <span>붕스</span>
+                    </li>
+                    <li>
+                        <span>붕스</span>
+                    </li>
+                </ul>
+            </li>
+            <li>동영상</li>
+            <li>게임</li>
+            <li>너의 하위 분류</li>
+        </ul>
+    </div>
+</aside>
+</body>
+</html>
